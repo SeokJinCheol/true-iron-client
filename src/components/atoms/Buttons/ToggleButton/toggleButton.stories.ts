@@ -1,20 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-import Button from './index';
+import ToggleButton from './index';
 
 const meta = {
-    title: 'atoms/Buttons/Button',
-    component: Button,
+    title: 'atoms/Buttons/toggleButton',
+    component: ToggleButton,
     parameters: {
         layout: 'centered',
     },
-     tags: ['autodocs'],
+    tags: ['autodocs'],
     argTypes: {
         backgroundColor: { control: 'color' },
     },
     args: { onClick: fn() },
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof ToggleButton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
