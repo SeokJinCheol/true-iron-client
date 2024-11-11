@@ -12,9 +12,9 @@ const Home: FC<Props> = () => {
     const user = useSelector((state: RootState) => state.user);
     const Click = () => {
         dispatch(setUser({
-            id: "4ade80",
-            name: "",
-            email: ""
+            id: "jincheol",
+            name: "석진철",
+            email: "tjrwlscjf13@naver.com"
         }))
     }
 
