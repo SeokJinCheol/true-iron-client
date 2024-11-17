@@ -1,0 +1,35 @@
+.work__flow {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    .react-flow__node {
+        border: none;
+        width: auto;
+        height: auto;
+    }
+
+    .react-flow__handle {
+        width: 8px;
+        height: 15px;
+        border-radius: 12px;
+
+        &:hover {
+            background-color: #1ea7fd;
+        }
+
+        &:first-child{
+            margin-left: -1px;
+        }
+        &:last-child{
+            margin-right: -1px;
+        }
+    }
+
+    .react-flow__panel {
+        a {
+            display: none;
+        }
+    }
+}
+

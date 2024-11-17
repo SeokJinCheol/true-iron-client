@@ -10,43 +10,17 @@ import {
     ReactFlowInstance,
     OnEdgesChange,
     OnNodesChange,
-    Position,
     ReactFlow, Panel,
 } from '@xyflow/react';
 
 import '@xyflow/react/dist/style.css';
-import './style.css';
+import './_style.css';
 
-interface Props {}
+interface Props {
+    initialNodes: Node[]
+}
 
-// @ts-ignore
-const initialNodes: Node[] = [
-    {
-        id: '1',
-        type: 'input',
-        sourcePosition: Position.Right,
-        targetPosition: Position.Left,
-        position: {x: 100, y: 100},
-        data: {label: "test"}
-    },
-    {
-        id: '2',
-        sourcePosition: Position.Right,
-        targetPosition: Position.Left,
-        position: {x: 400, y: 100},
-        data: {label: '2'}
-    },
-    {
-        id: '3',
-        type: 'output',
-        sourcePosition: Position.Right,
-        targetPosition: Position.Left,
-        position: {x: 400, y: 100},
-        data: {label: '2'}
-    },
-];
-
-const initialEdges:Edge[] = [{
+const initialEdges: Edge[] = [{
     id: 'e1-2', source: '1', target: '2', animated: true, markerEnd: {
         type: MarkerType.ArrowClosed,
         width: 25,
@@ -55,13 +29,20 @@ const initialEdges:Edge[] = [{
     }
 }];
 
-const FlowBoard:FC<Props> = () => {
+const FlowBoard: FC<Props> = ({initialNodes}) => {
     const [nodes, setNodes] = useState<Node[]>(initialNodes);
     const [edges, setEdges] = useState<Edge[]>(initialEdges);
     const [rfInstance, setRfInstance] = useState<ReactFlowInstance>();
 
     const onConnect: OnConnect = useCallback(
-        (connection) => setEdges((eds) => addEdge(connection, eds)),
+        (connection) => setEdges((eds) => addEdge({
+            ...connection, animated: true, markerEnd: {
+                type: MarkerType.ArrowClosed,
+                width: 25,
+                height: 25,
+                color: 'black',
+            }
+        }, eds)),
         [setEdges],
     );
 
@@ -82,7 +63,7 @@ const FlowBoard:FC<Props> = () => {
     }, [rfInstance]);
 
     return (
-        <div style={{width: '100vw', height: '100vh'}}>
+        <div className="work__flow">
             <ReactFlow
                 nodes={nodes}
                 edges={edges}

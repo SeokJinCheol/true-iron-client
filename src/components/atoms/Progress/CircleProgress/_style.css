@@ -1,0 +1,6 @@
+.CircularProgressbar .CircularProgressbar-path {
+    stroke: #0B6E4F;
+    stroke-linecap: round;
+    -webkit-transition: stroke-dashoffset 0.5s ease 0s;
+    transition: stroke-dashoffset 0.5s ease 0s;
+}

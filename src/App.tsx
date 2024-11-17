@@ -1,21 +1,29 @@
 import React from 'react';
 import './App.css';
-import Home from "./pages/Home";
 
 import { Provider } from 'react-redux';
 import rootReducer from "./modules";
 
-import {BrowserRouter as Router} from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import {createStore} from "redux";
+
+import Header from "./components/organisms/Header";
+import Footer from "src/components/organisms/Footer";
+import Home from "src/components/pages/Home";
 
 const store = createStore(rootReducer);
 
 function App() {
   return (
       <Provider store={store}>
-          <Router>
-              <Home></Home>
-          </Router>
+          <Header />
+          <div className="body">
+              <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/test" element={<div>test</div>} />
+              </Routes>
+          </div>
+          <Footer />
       </Provider>
   );
 }
