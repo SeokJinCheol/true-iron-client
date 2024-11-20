@@ -20,7 +20,7 @@ function App() {
           <div className="body">
               <Routes>
                   <Route path="/" element={<Home />} />
-                  <Route path="/test" element={<div>test</div>} />
+                  <Route path="/test" element={<div>pushTest</div>} />
               </Routes>
           </div>
           <Footer />
