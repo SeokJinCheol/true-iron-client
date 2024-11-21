@@ -16,14 +16,14 @@ const store = createStore(rootReducer);
 function App() {
   return (
       <Provider store={store}>
-          <Header />
-          <div className="body">
+          <div className="flex flex-col h-screen">
+              <Header />
               <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/test" element={<div>pushTest</div>} />
               </Routes>
+              <Footer />
           </div>
-          <Footer />
       </Provider>
   );
 }
