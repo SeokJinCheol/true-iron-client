@@ -1,7 +1,7 @@
 import { WorkFlowAction, WorkFlow } from "./types";
 import { createReducer } from 'typesafe-actions';
 import { SET_WORKFLOW, SET_WORKFLOW_ID } from "./actions";
-import produce from "immer";
+import {produce} from "immer";
 
 const initialState: WorkFlow = {
     id: ""

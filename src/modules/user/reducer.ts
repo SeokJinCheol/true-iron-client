@@ -1,7 +1,7 @@
 import { UserAction, User } from "./types";
 import { createReducer } from 'typesafe-actions';
 import { SET_USER, LOGOUT_USER } from "./actions";
-import produce from "immer";
+import {produce} from "immer";
 
 const initialState: User = {
     id: "",

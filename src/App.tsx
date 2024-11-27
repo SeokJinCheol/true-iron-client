@@ -4,7 +4,7 @@ import './App.css';
 import { Provider } from 'react-redux';
 import rootReducer from "./modules";
 
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import {createStore} from "redux";
 
 import Header from "./components/organisms/Header";
