@@ -33,10 +33,9 @@ const DateInput: FC<Props> = ({date, placeholder}) => {
                 endDate={endDate}
                 onChange={(date) => changeDate(date)}
                 showMonthYearDropdown={undefined}
-                dateFormat={"YYYY-MM-dd HH:mm"}
+                dateFormat={"YYYY-MM-dd"}
                 timeFormat="HH:mm"
                 selectsRange
-                showTimeSelect
             />
         </div>
     )

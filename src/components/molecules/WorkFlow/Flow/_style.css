@@ -19,9 +19,13 @@
         }
 
         &:first-child{
+            width: 10px;
             margin-left: -1px;
         }
         &:last-child{
+            width: 15px;
+            height: 15px;
+            border-radius: 100%;
             margin-right: -1px;
         }
     }

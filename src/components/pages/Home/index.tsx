@@ -16,21 +16,21 @@ const initialNodes: Node[] = [
         sourcePosition: Position.Right,
         targetPosition: Position.Left,
         position: {x: 100, y: 100},
-        data: {label: <FlowCard/>}
+        data: {label: <FlowCard workId={"1"}/>}
     },
     {
         id: '2',
         sourcePosition: Position.Right,
         targetPosition: Position.Left,
         position: {x: 400, y: 100},
-        data: {label: <FlowCard/>}
+        data: {label: <FlowCard workId={"2"}/>}
     },
     {
         id: '6',
         sourcePosition: Position.Right,
         targetPosition: Position.Left,
         position: {x: 400, y: 300},
-        data: {label: <FlowCard/>}
+        data: {label: <FlowCard workId={"3"}/>}
     },
     {
         id: '3',
@@ -38,7 +38,7 @@ const initialNodes: Node[] = [
         sourcePosition: Position.Right,
         targetPosition: Position.Left,
         position: {x: 700, y: 100},
-        data: {label: <FlowCard/>}
+        data: {label: <FlowCard workId={"4"}/>}
     },
 ];
 
