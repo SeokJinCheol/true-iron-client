@@ -5,8 +5,9 @@ import FlowBoard from 'src/components/molecules/WorkFlow/Flow';
 import {Node, Position} from "@xyflow/react";
 import FlowCard from "src/components/molecules/WorkFlow/Card";
 import CardDetail from "src/components/molecules/WorkFlow/CardDetail";
-interface Props {}
+import {Avatar, AvatarFallback, AvatarImage} from "src/components/atoms/Avatar";
 
+interface Props {}
 
 // @ts-ignore
 const initialNodes: Node[] = [
@@ -46,6 +47,10 @@ const Home: FC<Props> = () => {
     return (
         <div className="w-full h-full relative">
             <FlowBoard initialNodes={initialNodes} />
+            <Avatar>
+                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
             <CardDetail />
         </div>
     )
