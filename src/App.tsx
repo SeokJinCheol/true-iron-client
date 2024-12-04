@@ -7,21 +7,19 @@ import rootReducer from "./modules";
 import {Route, Routes} from "react-router-dom";
 import {createStore} from "redux";
 
-import {SidebarInset, SidebarProvider, SidebarTrigger} from "./shadcn/components/ui/sidebar"
-import { AppSidebar } from "./shadcn/components/app-sidebar"
+import {SidebarInset, SidebarProvider, SidebarTrigger} from "./components/ui/sidebar"
+import { AppSidebar } from "./components/app-sidebar"
 
-import Header from "./components/organisms/Header";
-import Footer from "src/components/organisms/Footer";
-import Home from "src/components/pages/Home";
-import {ThemeProvider} from "src/shadcn/components/theme-provider";
-import {Separator} from "src/shadcn/components/ui/separator";
+import {ThemeProvider} from "./components/theme-provider";
+import {Separator} from "./components/ui/separator";
 import {
     Breadcrumb,
     BreadcrumbItem,
     BreadcrumbLink,
     BreadcrumbList, BreadcrumbPage,
     BreadcrumbSeparator
-} from "src/shadcn/components/ui/breadcrumb";
+} from "src/components/ui/breadcrumb";
+import Home from "src/pages/Home";
 
 const store = createStore(rootReducer);
 
