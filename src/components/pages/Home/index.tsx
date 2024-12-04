@@ -44,7 +44,7 @@ const initialNodes: Node[] = [
 
 const Home: FC<Props> = () => {
     return (
-        <div className="w-full h-full relative">
+        <div className="w-full h-full">
             <FlowBoard initialNodes={initialNodes} />
             <CardDetail />
         </div>
