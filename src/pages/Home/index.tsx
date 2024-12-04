@@ -3,7 +3,7 @@ import './_style.css';
 
 import FlowBoard from '../../molecules/WorkFlow/Flow';
 import {Node, Position} from "@xyflow/react";
-import FlowCard from "../../molecules/WorkFlow/Card";
+import { FlowCard } from "../../molecules/WorkFlow/Card";
 
 interface Props {}
 
@@ -15,29 +15,29 @@ const initialNodes: Node[] = [
         sourcePosition: Position.Right,
         targetPosition: Position.Left,
         position: {x: 100, y: 100},
-        data: {label: <FlowCard workId={"1"}/>}
+        data: {label: <FlowCard title={"aa"} id={"1"}/>}
     },
     {
         id: '2',
         sourcePosition: Position.Right,
         targetPosition: Position.Left,
-        position: {x: 400, y: 100},
-        data: {label: <FlowCard workId={"2"}/>}
+        position: {x: 700, y: 100},
+        data: {label: <FlowCard title={"aa"} id={"1"} />}
     },
     {
         id: '6',
         sourcePosition: Position.Right,
         targetPosition: Position.Left,
-        position: {x: 400, y: 300},
-        data: {label: <FlowCard workId={"3"}/>}
+        position: {x: 400, y: 600},
+        data: {label: <FlowCard title={"aa"} id={"1"}/>}
     },
     {
         id: '3',
         type: 'output',
         sourcePosition: Position.Right,
         targetPosition: Position.Left,
-        position: {x: 700, y: 100},
-        data: {label: <FlowCard workId={"4"}/>}
+        position: {x: 1200, y: 100},
+        data: {label: <FlowCard title={"aa"} id={"1"}/>}
     },
 ];
 
