@@ -1,5 +1,4 @@
 import React, {FC} from 'react';
-import './_style.css';
 
 import FlowBoard from '../../molecules/WorkFlow/Flow';
 import {Node, Position} from "@xyflow/react";

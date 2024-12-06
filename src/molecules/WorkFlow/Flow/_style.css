@@ -1,7 +1,6 @@
 .work__flow {
     width: 100%;
     height: 100%;
-    z-index: 1;
 
     .react-flow__node {
         border: none;
