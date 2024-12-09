@@ -1,7 +1,14 @@
 {
   "name": "true-iron-clinet",
-  "version": "0.1.0",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
   "dependencies": {
     "@emotion/react": "11.13.3",
     "@emotion/styled": "11.13.0",
@@ -30,10 +37,8 @@
     "lucide-react": "^0.462.0",
     "moment": "2.30.1",
     "path": "0.12.7",
-    "react": "^18.3.1",
     "react-circular-progressbar": "2.1.0",
     "react-datepicker": "7.5.0",
-    "react-dom": "^18.3.1",
     "react-redux": "9.1.2",
     "react-router-dom": "6.28.0",
     "react-scripts": "5.0.1",
@@ -48,49 +53,12 @@
     "ts-node": "10.9.2",
     "typesafe-actions": "5.1.0",
     "typescript": "4.9.5",
-    "web-vitals": "2.1.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest",
-      "plugin:storybook/recommended",
-      "plugin:storybook/recommended",
-      "plugin:storybook/recommended",
-      "plugin:storybook/recommended"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "web-vitals": "2.1.4",
+
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "1.9.0",
-    "@storybook/addon-essentials": "8.3.6",
-    "@storybook/addon-interactions": "8.3.6",
-    "@storybook/addon-links": "8.3.6",
-    "@storybook/addon-onboarding": "8.3.6",
-    "@storybook/blocks": "8.3.6",
-    "@storybook/preset-create-react-app": "8.3.6",
-    "@storybook/react": "8.3.6",
-    "@storybook/react-webpack5": "8.3.6",
-    "@storybook/test": "8.3.6",
     "@types/lodash": "^4.14.186",
     "@types/node": "^18.7.23",
     "autoprefixer": "10.4.20",
@@ -101,7 +69,18 @@
     "react-app-alias": "2.2.2",
     "storybook": "8.3.6",
     "tailwindcss": "3.4.14",
-    "typescript": "^4.8.4",
-    "webpack": "^5.96.1"
+    "webpack": "^5.96.1",
+
+    "@eslint/js": "^9.15.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "eslint": "^9.15.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "globals": "^15.12.0",
+    "typescript": "5.7.2",
+    "typescript-eslint": "^8.15.0",
+    "vite": "6.0.3"
   }
 }

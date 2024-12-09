@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import {FC} from 'react';
 
 import FlowBoard from '../../molecules/WorkFlow/Flow';
 import {Node, Position} from "@xyflow/react";

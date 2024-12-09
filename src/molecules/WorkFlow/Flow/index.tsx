@@ -59,7 +59,7 @@ const FlowBoard: FC<Props> = ({initialNodes}) => {
 
     const onSave = useCallback(() => {
         if (rfInstance) {
-            const flow = rfInstance.toObject();
+            // const flow = rfInstance.toObject();
         }
     }, [rfInstance]);
 

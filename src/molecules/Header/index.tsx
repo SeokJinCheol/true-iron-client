@@ -7,7 +7,7 @@ import {
     BreadcrumbList,
     BreadcrumbPage,
     BreadcrumbSeparator,
-} from "src/components/ui/breadcrumb"
+} from "../../components/ui/breadcrumb"
 
 export function HeaderPath() {
     return (

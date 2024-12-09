@@ -8,12 +8,12 @@ import {
     SheetFooter,
     SheetHeader,
     SheetTitle, SheetTrigger
-} from "src/components/ui/sheet";
-import {Label} from "src/components/ui/label";
-import {Input} from "src/components/ui/input";
-import {Button} from "src/components/ui/button";
+} from "../../../components/ui/sheet";
+import {Label} from "../../../components/ui/label";
+import {Input} from "../../../components/ui/input";
+import {Button} from "../../../components/ui/button";
 import { BellRing, Check } from "lucide-react"
-import { cn } from "src/lib/utils"
+import { cn } from "../../../lib/utils"
 import {
     Card,
     CardContent,
@@ -21,8 +21,8 @@ import {
     CardFooter,
     CardHeader,
     CardTitle,
-} from "src/components/ui/card"
-import { Switch } from "src/components/ui/switch"
+} from "../../../components/ui/card"
+import { Switch } from "../../../components/ui/switch"
 
 type CardProps = React.ComponentProps<typeof Card>
 
