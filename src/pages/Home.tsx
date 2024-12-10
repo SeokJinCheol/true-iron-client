@@ -1,8 +1,8 @@
 import {FC} from 'react';
 
-import FlowBoard from '../../molecules/WorkFlow/Flow';
+import FlowBoard from '@/molecules/WorkFlow/Flow';
 import {Node, Position} from "@xyflow/react";
-import { FlowCard } from "../../molecules/WorkFlow/Card";
+import { FlowCard } from "@/molecules/WorkFlow/Card";
 
 interface Props {}
 
