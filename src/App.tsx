@@ -14,11 +14,36 @@ import {HeaderPath} from "./molecules/Header";
 
 import Home from "./pages/Home.tsx";
 import CreateProject from "./pages/CreateProject.tsx";
+import Task from "@/pages/Task";
+import {useState} from "react";
+
+type TItemStatus = 'todo' | 'doing';
+
+export type TItem = {
+    id: string;
+    status: TItemStatus;
+    title: string;
+    index: number;
+};
+
+export type TItems = {
+    [key in TItemStatus]: TItem[];
+};
 
 
 const store = createStore(rootReducer);
 
 function App() {
+    const [items, setItems] = useState<TItems>({
+        todo: [...Array(5)].map((_, i) => ({
+            id: `${i}${i}${i}`,
+            title: `Title ${i + 1}000`,
+            status: 'todo',
+            index: i,
+        })),
+        doing: [],
+    });
+
     return (
         <Provider store={store}>
             <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
@@ -35,6 +60,7 @@ function App() {
                                 <Routes>
                                     <Route path="/login" element={<Home />} />
                                     <Route path="/" element={<Home />} />
+                                    <Route path="/task" element={<Task items={items} setItems={setItems}/>} />
                                     <Route path="/start" element={<CreateProject />} />
                                     <Route path="/test" element={<div>pushTest</div>} />
                                 </Routes>
