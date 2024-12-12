@@ -18,14 +18,18 @@ const $ = (...classnames: any[]) => {
     return classnames.filter((v) => !!v).join(' ');
 };
 
-export const inrange = (v: number, min: number, max: number) => {
-    if (v < min) return min;
-    if (v > max) return max;
-    return v;
-};
+export default function TodoLibraryExample() {
 
+    const [items, setItems] = useState<TItems>({
+        todo: [...Array(5)].map((_, i) => ({
+            id: `${i}${i}${i}`,
+            title: `Title ${i + 1}000`,
+            status: 'todo',
+            index: i,
+        })),
+        doing: [],
+    });
 
-export default function TodoLibraryExample({ items, setItems}: {items: TItems;setItems: (items: TItems) => void; }) {
     const onDragEnd = ({ source, destination }: DropResult) => {
         if (!destination) return;
 
