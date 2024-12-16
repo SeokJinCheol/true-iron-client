@@ -9,7 +9,7 @@ import { AppSidebar } from "./components/app-sidebar"
 
 import {ThemeProvider} from "./components/theme-provider";
 import {Separator} from "./components/ui/separator";
-import {HeaderPath} from "./molecules/Header";
+import {HeaderPath} from "@/components/molecules/Header";
 
 import Home from "./pages/Home.tsx";
 import CreateProject from "./pages/CreateProject.tsx";

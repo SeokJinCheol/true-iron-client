@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { DragDropContext, Draggable, Droppable, DropResult } from 'react-beautiful-dnd';
+import {v4} from 'uuid';
 
-export type TItemStatus = 'todo' | 'doing';
+export type TItemStatus = string;
 
 export type TItem = {
     id: string;
@@ -14,21 +15,25 @@ export type TItems = {
     [key in TItemStatus]: TItem[];
 };
 
-const $ = (...classnames: any[]) => {
-    return classnames.filter((v) => !!v).join(' ');
-};
-
 export default function TodoLibraryExample() {
 
+    // task 가져오는 내용 추가
     const [items, setItems] = useState<TItems>({
         todo: [...Array(5)].map((_, i) => ({
-            id: `${i}${i}${i}`,
+            id: v4(),
             title: `Title ${i + 1}000`,
             status: 'todo',
             index: i,
         })),
         doing: [],
+        done: [],
+        backlog: []
     });
+
+    useEffect(() => {
+        // 수정시 저장 로직 추가
+        console.log(items);
+    }, [items]);
 
     const onDragEnd = ({ source, destination }: DropResult) => {
         if (!destination) return;
@@ -59,24 +64,17 @@ export default function TodoLibraryExample() {
 
     return (
         <div className="p-4">
-            <div className="mb-2">
-                <h1 className="text-3xl font-bold">react-beautiful-dnd</h1>
-                <span>with react library</span>
-            </div>
 
             <div className="mt-4 flex z-20">
                 <DragDropContext onDragEnd={onDragEnd}>
-                    <div className="grid flex-1 select-none grid-cols-2 gap-4 rounded-lg">
+                    <div className="grid flex-1 select-none grid-cols-4 gap-4 rounded-lg" onChange={(e) => console.log(e)}>
                         {Object.keys(items).map((key) => (
-                            <Droppable key={key} droppableId={key}>
+                            <Droppable key={key} droppableId={key} >
                                 {(provided, snapshot) => (
                                     <div
                                         ref={provided.innerRef}
                                         {...provided.droppableProps}
-                                        className={$(
-                                            'flex flex-col gap-3 rounded-xl bg-gray-200 p-4 ring-1 ring-gray-300 transition-shadow dark:bg-[#000000]',
-                                            snapshot.isDraggingOver ? 'shadow-lg' : 'shadow',
-                                        )}
+                                        className={`flex flex-col gap-3 rounded-xl bg-gray-200 p-4 ring-1 ring-gray-300 transition-shadow dark:bg-[#000000] ${snapshot.isDraggingOver ? 'shadow-lg' : 'shadow'}`}
                                     >
                                         <span className="text-xs font-semibold">{key.toLocaleUpperCase()}</span>
                                         {items[key as TItemStatus].map((item, index) => (
@@ -86,12 +84,7 @@ export default function TodoLibraryExample() {
                                                         ref={provided.innerRef}
                                                         {...provided.draggableProps}
                                                         {...provided.dragHandleProps}
-                                                        className={$(
-                                                            'rounded-lg bg-white p-4 transition-shadow dark:bg-[#121212]',
-                                                            snapshot.isDragging
-                                                                ? 'bg-opacity-90 shadow-2xl shadow-gray-400'
-                                                                : 'shadow',
-                                                        )}
+                                                        className={`rounded-lg bg-white p-4 transition-shadow dark:bg-[#121212] ${snapshot.isDragging ? 'bg-opacity-90 shadow-2xl shadow-gray-400' : 'shadow'}`}
                                                     >
                                                         <h5 className="font-semibold">{item.title}</h5>
                                                         <span

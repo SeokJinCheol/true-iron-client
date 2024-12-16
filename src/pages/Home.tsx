@@ -1,12 +1,11 @@
 import {FC} from 'react';
 
-import FlowBoard from '@/molecules/WorkFlow/Flow';
+import FlowBoard from '@/components/molecules/WorkFlow/Flow';
 import {Node, Position} from "@xyflow/react";
-import { FlowCard } from "@/molecules/WorkFlow/Card";
+import { FlowCard } from "@/components/molecules/WorkFlow/Card";
 
 interface Props {}
 
-// @ts-ignore
 const initialNodes: Node[] = [
     {
         id: '1',
