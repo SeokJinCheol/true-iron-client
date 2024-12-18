@@ -14,6 +14,7 @@ import {HeaderPath} from "@/components/molecules/Header";
 import Home from "./pages/Home.tsx";
 import CreateProject from "./pages/CreateProject.tsx";
 import Task from "@/pages/Task";
+import Chat from '@/pages/Chat';
 const store = createStore(rootReducer);
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
                                     <Route path="/login" element={<Home />} />
                                     <Route path="/" element={<Home />} />
                                     <Route path="/task" element={<Task />} />
+                                    <Route path="/chat" element={<Chat />} />
                                     <Route path="/start" element={<CreateProject />} />
                                     <Route path="/test" element={<div>pushTest</div>} />
                                 </Routes>
