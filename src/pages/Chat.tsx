@@ -23,6 +23,10 @@ const Chat = () => {
             console.log("Connected!");
         });
 
+        socket.on("message", (data: Message) => {
+            setMessages((messages) => [...messages, data]);
+        });
+
         return () => {
             socket.disconnect();
         };
