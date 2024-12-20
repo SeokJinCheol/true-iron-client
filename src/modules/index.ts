@@ -1,17 +1,11 @@
 import { combineReducers } from "redux";
 
 import user from './user/reducer';
-import {User} from './user/types';
 import workflow from './workflow/reducer'
-import {WorkFlow} from './workflow/types'
-
-export type RootState = {
-    user: User,
-    workflow: WorkFlow
-}
+import chat from '@/modules/chat/reducer'
 
 const rootReducer = combineReducers({
-    user, workflow
+    user, workflow, chat
 })
 
 export default rootReducer;

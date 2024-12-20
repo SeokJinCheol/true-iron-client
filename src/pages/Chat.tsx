@@ -13,15 +13,14 @@ const Chat = () => {
     const [username, setUsername] = useState<string>("");
     const [message, setMessage] = useState<string>("");
     const [messages, setMessages] = useState<Message[]>([]);
+    const [room, setRoom] = useState<string>("");
 
     useEffect(() => {
         socket = io("ws://127.0.0.1:8000", {
             path: "/ws/socket.io"
         });
 
-        socket.on("connect", () => {
-            console.log("Connected!");
-        });
+        socket.emit("join", { room: room });
 
         socket.on("message", (data: Message) => {
             setMessages((messages) => [...messages, data]);
@@ -30,11 +29,11 @@ const Chat = () => {
         return () => {
             socket.disconnect();
         };
-    }, []);
+    }, [room]);
 
     const sendMessage = () => {
         if (username && message) {
-            socket.emit("message", { user: username, text: message });
+            socket.emit("message", { message: { user: username, text: message }, room: room });
             setMessage("");
         }
     };
@@ -55,13 +54,24 @@ const Chat = () => {
                     </div>
                 ))}
             </div>
+
             <input
+                className="text-black"
                 type="text"
-                placeholder="사용자 이름"
+                placeholder="user Name"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
             />
+
             <input
+                className="text-black"
+                type="text"
+                placeholder="채팅방 이름"
+                value={room}
+                onChange={(e) => setRoom(e.target.value)}
+            />
+            <input
+                className="text-black"
                 type="text"
                 placeholder="메시지"
                 value={message}
