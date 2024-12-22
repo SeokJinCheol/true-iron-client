@@ -9,9 +9,13 @@ import {
   Frame,
   GalleryVerticalEnd,
   Map,
+  Presentation,
   PieChart,
   Settings2,
-  SquareTerminal,
+  ChartArea,
+  Folders,
+  FileChartPie,
+  MessagesSquare
 } from "lucide-react"
 
 import { NavMain } from "./nav-main"
@@ -52,36 +56,38 @@ const data = {
   ],
   navMain: [
     {
-      title: "Playground",
-      url: "#",
-      icon: SquareTerminal,
-      isActive: true,
+      title: "Project",
+      url: "/project",
+      icon: Presentation,
       items: [
         {
-          title: "History",
-          url: "#",
+          icon: ChartArea,
+          title: "Dashboard",
+          url: "/dashboard"
         },
         {
-          title: "Starred",
-          url: "#",
+          icon: Folders,
+          title: "Workspace",
+          url: "/workspace",
         },
         {
-          title: "Settings",
-          url: "#",
+          icon: FileChartPie,
+          title: "Report",
+          url: "/report",
         },
       ],
     },
     {
-      title: "Models",
-      url: "#",
+      title: "Agent",
+      url: "/Agent",
       icon: Bot,
       items: [
         {
-          title: "Genesis",
+          title: "Git",
           url: "#",
         },
         {
-          title: "Explorer",
+          title: "OpenAI",
           url: "#",
         },
         {
@@ -114,25 +120,26 @@ const data = {
       ],
     },
     {
+      title: "Chat",
+      url: "/chat",
+      icon: MessagesSquare,
+    },
+    {
       title: "Settings",
-      url: "#",
+      url: "/setting",
       icon: Settings2,
       items: [
         {
           title: "General",
-          url: "#",
+          url: "/setting",
         },
         {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
+          title: "Project",
+          url: "/setting/project",
         },
         {
           title: "Limits",
-          url: "#",
+          url: "/setting/limits",
         },
       ],
     },
