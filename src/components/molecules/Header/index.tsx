@@ -10,20 +10,32 @@ import {
 } from "@/components/ui/breadcrumb"
 
 export function HeaderPath() {
+    const locations = window.location.pathname.split("/").filter(el => el) || [];
+    console.log(locations);
+
     return (
         <Breadcrumb>
             <BreadcrumbList>
-                <BreadcrumbItem>
-                    <BreadcrumbLink href="/">Home</BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>
-                    <BreadcrumbLink href="/components">Components</BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>
-                    <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-                </BreadcrumbItem>
+                {locations.map((data, idx) => {
+                    if(locations.length - 1 !== idx) {
+                        return (
+                            <>
+                                <BreadcrumbItem>
+                                    <BreadcrumbLink href={`/${locations.slice(0, idx+1).join("/")}`}>{data}</BreadcrumbLink>
+                                </BreadcrumbItem>
+                                <BreadcrumbSeparator />
+                            </>
+                        )
+                    } else {
+                        return (
+                            <>
+                                <BreadcrumbItem>
+                                    <BreadcrumbPage>{data}</BreadcrumbPage>
+                                </BreadcrumbItem>
+                            </>
+                        )
+                    }
+                })}
             </BreadcrumbList>
         </Breadcrumb>
     )

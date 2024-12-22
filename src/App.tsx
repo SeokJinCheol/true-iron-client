@@ -33,8 +33,9 @@ function App() {
                             <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min">
                                 <Routes>
                                     <Route path="/login" element={<Home />} />
-                                    <Route path="/" element={<Home />} />
-                                    <Route path="/task" element={<Task />} />
+                                    <Route path="/:project" element={<Home />} />
+                                    <Route path="/:project/:workcard/workflow" element={<Home />} />
+                                    <Route path="/:project/task" element={<Task />} />
                                     <Route path="/chat" element={<Chat />} />
                                     <Route path="/start" element={<CreateProject />} />
                                     <Route path="/test" element={<div>pushTest</div>} />
