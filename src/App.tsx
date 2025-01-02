@@ -15,6 +15,7 @@ import Home from "./pages/Home.tsx";
 import CreateProject from "./pages/CreateProject.tsx";
 import Task from "@/pages/Task";
 import Chat from '@/pages/Chat';
+import DashBoard from "@/pages/DashBoard.tsx";
 const store = createStore(rootReducer);
 
 function App() {
@@ -33,7 +34,8 @@ function App() {
                             <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min">
                                 <Routes>
                                     <Route path="/login" element={<Home />} />
-                                    <Route path="/:project" element={<Home />} />
+                                    <Route path="/:project" element={<DashBoard />} />
+                                    <Route path="/:project/workspace" element={<Task />} />
                                     <Route path="/:project/:workcard/workflow" element={<Home />} />
                                     <Route path="/:project/task" element={<Task />} />
                                     <Route path="/chat" element={<Chat />} />

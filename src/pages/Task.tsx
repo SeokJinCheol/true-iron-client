@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { DragDropContext, Draggable, Droppable, DropResult } from 'react-beautiful-dnd';
 import {v4} from 'uuid';
+import {useNavigate} from "react-router-dom";
 
 export type TItemStatus = string;
 
@@ -16,6 +17,7 @@ export type TItems = {
 };
 
 export default function TodoLibraryExample() {
+    const navigate = useNavigate();
 
     // task 가져오는 내용 추가
     const [items, setItems] = useState<TItems>({
@@ -72,6 +74,7 @@ export default function TodoLibraryExample() {
                             <Droppable key={key} droppableId={key} >
                                 {(provided, snapshot) => (
                                     <div
+                                        onDoubleClick={() => {navigate('/project/workspace/workflow')}}
                                         ref={provided.innerRef}
                                         {...provided.droppableProps}
                                         className={`flex flex-col gap-3 rounded-xl bg-gray-200 p-4 ring-1 ring-gray-300 transition-shadow dark:bg-[#000000] ${snapshot.isDraggingOver ? 'shadow-lg' : 'shadow'}`}

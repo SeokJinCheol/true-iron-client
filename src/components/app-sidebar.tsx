@@ -29,6 +29,7 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "./ui/sidebar"
+import { useSelector} from "react-redux";
 
 // This is sample data.
 const data = {
@@ -63,7 +64,7 @@ const data = {
         {
           icon: ChartArea,
           title: "Dashboard",
-          url: "/dashboard"
+          url: "/"
         },
         {
           icon: Folders,
@@ -164,6 +165,7 @@ const data = {
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>

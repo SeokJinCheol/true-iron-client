@@ -1,17 +1,22 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import {
     Breadcrumb,
     BreadcrumbItem,
-    BreadcrumbLink,
     BreadcrumbList,
     BreadcrumbPage,
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
+import {NavLink, useLocation} from "react-router-dom";
 
 export function HeaderPath() {
-    const locations = window.location.pathname.split("/").filter(el => el) || [];
-    console.log(locations);
+    const [locations, setLocations] = useState<string[]>([]);
+
+    const location = useLocation();
+    useEffect(() => {
+        const locationList = location.pathname.split("/").filter(el => el) || [];
+        setLocations(locationList)
+    }, [location]);
 
     return (
         <Breadcrumb>
@@ -21,7 +26,7 @@ export function HeaderPath() {
                         return (
                             <>
                                 <BreadcrumbItem>
-                                    <BreadcrumbLink href={`/${locations.slice(0, idx+1).join("/")}`}>{data}</BreadcrumbLink>
+                                    <NavLink to={`/${locations.slice(0, idx+1).join("/")}`}>{data}</NavLink>
                                 </BreadcrumbItem>
                                 <BreadcrumbSeparator />
                             </>
