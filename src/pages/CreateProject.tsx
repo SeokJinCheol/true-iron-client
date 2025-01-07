@@ -1,6 +1,6 @@
 const CreateProject = () => {
     return (
-        <div className="w-full h-full flex fixed top-0 left-0 z-20 p-2">
+        <div className="w-full h-full flex fixed top-0 left-0 z-20 p-2 bg-white">
             아직 아무 프로젝트가 없습니다.
             새프로젝트를 만들고 시작해보세요~
 

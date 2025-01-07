@@ -2,12 +2,26 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
-import {BrowserRouter} from 'react-router-dom'
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import LoginPage from "@/pages/Login.tsx";
+
+import { Provider } from 'react-redux';
+import {ThemeProvider} from "@/components/theme-provider";
+import {createStore} from "redux";
+import rootReducer from "./modules";
+const store = createStore(rootReducer);
 
 createRoot(document.getElementById('root')!).render(
   <>
-     <BrowserRouter>
-        <App />
-    </BrowserRouter>
+      <Provider store={store}>
+          <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+             <BrowserRouter>
+                 <Routes>
+                     <Route path="/*" element={<App />} />
+                     <Route path="/login" element={<LoginPage />} />
+                 </Routes>
+            </BrowserRouter>
+          </ThemeProvider>
+      </Provider>
   </>
 )
