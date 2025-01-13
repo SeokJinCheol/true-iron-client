@@ -56,10 +56,10 @@ export function NavMain({
                   </CollapsibleTrigger>
               ) : (
                   <SidebarMenuButton asChild>
-                    <a href={item.url}>
+                    <NavLink to={item.url}>
                       {item.icon && <item.icon />}
                       <span>{item.title}</span>
-                    </a>
+                    </NavLink>
                   </SidebarMenuButton>
               )}
 

@@ -14,13 +14,14 @@ import {useEffect} from "react";
 
 import {useLocation} from "react-router-dom";
 import {useSelector} from "react-redux";
+import { rootReducer } from "@/modules";
 
 function App() {
     const location = useLocation();
-    const store = useSelector((state) => state);
+    const userStore = useSelector((state:rootReducer) => state.user)
 
     useEffect(() => {
-        console.log(store)
+        if(userStore.id === "") window.location.href = '/login'
     }, [location])
 
     return (

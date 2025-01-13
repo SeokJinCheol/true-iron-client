@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import { io, Socket } from "socket.io-client";
 
+import {CommandDemo} from '@/components/molecules/Chat/ChatList'
+import {useSelector} from "react-redux";
+import {rootReducer} from "@/modules";
+
 interface Message {
     user: string;
     text: string;
@@ -10,7 +14,8 @@ interface Message {
 let socket: Socket;
 
 const Chat = () => {
-    const [username, setUsername] = useState<string>("");
+    const userStore = useSelector((state:rootReducer) => state.user)
+    const chatStore = useSelector((state:rootReducer) => state.chat)
     const [message, setMessage] = useState<string>("");
     const [messages, setMessages] = useState<Message[]>([]);
     const [room, setRoom] = useState<string>("");
@@ -32,8 +37,8 @@ const Chat = () => {
     }, [room]);
 
     const sendMessage = () => {
-        if (username && message) {
-            socket.emit("message", { message: { user: username, text: message }, room: room });
+        if (message) {
+            socket.emit("message", { message: { user: userStore.name, text: message }, room: chatStore.id });
             setMessage("");
         }
     };
@@ -44,40 +49,37 @@ const Chat = () => {
     };
 
     return (
-        <div>
-            <h1>실시간 채팅</h1>
-            <div>
-                {messages.map((msg, index) => (
-                    <div key={index}>
-                        <strong>{msg.user}</strong> ({formatDate(msg.timestamp)}):{" "}
-                        {msg.text}
-                    </div>
-                ))}
+        <div className="h-full flex">
+            <div className="">
+                <CommandDemo/>
             </div>
+            <div className="p-10 w-full">
+                <h1>실시간 채팅</h1>
+                <div>
+                    {messages.map((msg, index) => (
+                        <div key={index}>
+                            <strong>{msg.user}</strong> ({formatDate(msg.timestamp)}):{" "}
+                            {msg.text}
+                        </div>
+                    ))}
+                </div>
 
-            <input
-                className="text-black"
-                type="text"
-                placeholder="user Name"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-            />
-
-            <input
-                className="text-black"
-                type="text"
-                placeholder="채팅방 이름"
-                value={room}
-                onChange={(e) => setRoom(e.target.value)}
-            />
-            <input
-                className="text-black"
-                type="text"
-                placeholder="메시지"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-            />
-            <button onClick={sendMessage}>전송</button>
+                <input
+                    className="text-black"
+                    type="text"
+                    placeholder="채팅방 이름"
+                    value={room}
+                    onChange={(e) => setRoom(e.target.value)}
+                />
+                <input
+                    className="text-black"
+                    type="text"
+                    placeholder="메시지"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                />
+                <button onClick={sendMessage}>전송</button>
+            </div>
         </div>
     );
 };

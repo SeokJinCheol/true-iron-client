@@ -10,4 +10,6 @@ const rootReducer = combineReducers({
     user, workflow, chat, project, team
 })
 
+export type rootReducer = ReturnType<typeof rootReducer>;
+
 export default rootReducer;
