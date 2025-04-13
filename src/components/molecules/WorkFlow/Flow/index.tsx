@@ -11,9 +11,8 @@ import {
     OnEdgesChange,
     OnNodesChange,
     ReactFlow, Panel,
-    type ColorMode,
 } from '@xyflow/react';
-
+import { useTheme } from "@/components/theme-provider"
 import '@xyflow/react/dist/style.css';
 import './_style.css';
 
@@ -31,7 +30,7 @@ const initialEdges: Edge[] = [{
 }];
 
 const FlowBoard: FC<Props> = ({initialNodes}) => {
-    const [colorMode, setColorMode] = useState<ColorMode>('dark')
+    const { theme } = useTheme()
     const [nodes, setNodes] = useState<Node[]>(initialNodes);
     const [edges, setEdges] = useState<Edge[]>(initialEdges);
     const [rfInstance, setRfInstance] = useState<ReactFlowInstance>();
@@ -73,7 +72,7 @@ const FlowBoard: FC<Props> = ({initialNodes}) => {
                 onConnect={onConnect}
                 onInit={setRfInstance}
                 attributionPosition="bottom-left"
-                colorMode={colorMode}
+                colorMode={theme}
             >
                 <Panel position="top-right">
                     <button onClick={onSave}>save</button>
